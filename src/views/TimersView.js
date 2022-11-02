@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import Stopwatch from "../components/timers/Stopwatch";
-import Countdown from "../components/timers/Countdown";
-import XY from "../components/timers/XY";
-import Tabata from "../components/timers/Tabata";
+import Stopwatch from "../components/timers/Stopwatch/Stopwatch";
+import Countdown from "../components/timers/Countdown/Countdown";
+import XY from "../components/timers/XY/XY";
+import Tabata from "../components/timers/Tabata/Tabata";
+import {TimerLaunchpad, timerProperties} from "../components/generic/TimerLaunchpad";
 
 const Timers = styled.div`
   display: flex;
@@ -13,20 +14,20 @@ const Timers = styled.div`
 `;
 
 const Timer = styled.div`
-  border: 1px solid gray;
+ 
   padding: 20px;
   margin: 10px;
-  font-size: 1.5rem;
+ 
 `;
 
 const TimerTitle = styled.div``;
 
 const TimersView = () => {
   const timers = [
-    { title: "Stopwatch", C: <Stopwatch /> },
-    { title: "Countdown", C: <Countdown /> },
-    { title: "XY", C: <XY /> },
-    { title: "Tabata", C: <Tabata /> },
+    { title: "Stopwatch", C: <TimerLaunchpad timerType={timerProperties.timerModes.StopWatch} /> },
+    { title: "Countdown", C: <TimerLaunchpad timerType={timerProperties.timerModes.CountDown} /> },
+    { title: "XY", C: <TimerLaunchpad timerType={timerProperties.timerModes.XY} /> },
+    { title: "Tabata", C: <TimerLaunchpad timerType={timerProperties.timerModes.Tabata} /> },
   ];
 
   return (
